@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Guider</title>
+   
+    <link rel="stylesheet" type="text/css" href="{% static 'guiders/unique_guiders_style.css' %}">
+    
+</head>
+<body>
+    <h1>Add Guider</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Guider</button>
+    </form>
+</body>
+</html>

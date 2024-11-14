@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guider List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'guiders/unique_guiders_style.css' %}">
+</head>
+<body>
+    <h1>Guider List</h1>
+    
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <a href="{% url 'add_guider' %}" class="button">Add New Guider</a>
+    
+    <ul class="list">
+        {% for guider in guiders %}
+        <li class="list-item">
+            <div class="item-content">
+                <span>{{ guider.name }} - Age: {{ guider.age }} - Service Hours: {{ guider.service_hours }}</span>
+                <div class="item-actions">
+                    <a href="{% url 'edit_guider' guider.id %}" class="button edit">Edit</a>
+                    <form method="POST" action="{% url 'delete_guider' guider.id %}" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="button delete" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </li>
+        {% empty %}
+        <li>No guiders found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

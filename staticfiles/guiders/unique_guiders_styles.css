@@ -1,0 +1,48 @@
+/* General styling for guider pages */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f3;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #336699;
+    text-align: center;
+}
+
+a {
+    color: #336699;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #224466;
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #e6f7ff;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #336699;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #224466;
+}

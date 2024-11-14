@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest List</title>
+    <link rel="stylesheet" href="{% static 'guests/unique_guests_style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Guest List</h1>
+
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <a href="{% url 'add_guest' %}" class="button add">Add New Guest</a>
+
+        <ul class="list">
+            {% for guest in guests %}
+                <li class="list-item">
+                    <div class="item-content">
+                        <span>{{ guest.name }} - Visit Date: {{ guest.visit_date }}</span>
+                        <div class="item-actions">
+                            <a href="{% url 'edit_guest' guest.id %}" class="button edit">Edit</a>
+                            <form method="POST" action="{% url 'delete_guest' guest.id %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="button delete" onclick="return confirm('Are you sure?')">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            {% empty %}
+                <li>No guests found</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

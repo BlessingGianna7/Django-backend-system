@@ -1,0 +1,48 @@
+/* General styling for animal pages */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fef9f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #b36200;
+    text-align: center;
+}
+
+a {
+    color: #b36200;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #874b00;
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fff7e6;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #b36200;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #874b00;
+}
